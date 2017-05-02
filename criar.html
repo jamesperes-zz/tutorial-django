@@ -88,21 +88,47 @@
 
 
 <center>
-        <h1>Introdução</h1>
+        <h1>Criando um projeto</h1>
 </center><br>
             <div class="container" style="margin-top: 1%; ">
-            <center> <img src="images/poney.jpg" height="220"></center>
-                    <p><h3>Django é um framework gratuito e de código aberto para a criação de aplicações web, escrito em Python.
-                    É um framework web, ou seja, é um conjunto de componentes que ajuda a desenvolver sites de forma mais rápida e mais fácil.</h3></p>
 
-                    <p><h3>Frameworks existem para salvá-lo de ter que reinventar a roda e ajudam a aliviar a sobrecarga quando você está
-                    construindo um novo site.</h3></p>
+                    <p><h4>Basicamente vamos executar alguns scripts fornecidos pelo Django que irá criar o esqueleto de um projeto Django </h4></p><br>
 
-                    <p><h3>Prepare para conhecer o mundo magico do Django! </h3></p><br>
+                    <p><h4>Linux: <code> (myvenv) ~/tutorial$ django-admin startproject mysite</code></h4></p>
+                    <p><h4>Windows: <code>(myvenv) C:\Users\Name\tutorial> python myvenv\Scripts\django-admin.py startproject mysite</code> </h4></p><br>
+
+                    <p><h4>Agora, você deve ter um diretório estrutura que se parece com isso:</h4></p>
+                    <p><h4>
+                        tutorial<br>
+                        ├───manage.py<br>
+                        └───mysite<br>
+                          &emsp;&emsp;&emsp;  ├───settings.py<br>
+                          &emsp;&emsp;&emsp;  ├───urls.py<br>
+                          &emsp;&emsp;&emsp;  ├───wsgi.py<br>
+                           &emsp;&emsp;&emsp; └───__init__.py<br>
+                    </h4></p>
+
+                    <p><h4>Esses arquivos são:<br><br>
+
+    <code>manage.py</code>: Um utilitário de linha de comando que permite a você interagir com esse projeto Django de várias maneiras.<br><br>
 
 
+    O arquivo  <code>mysite/ </code>interior é o pacote Python para o seu projeto. Seu nome é o nome do pacote Python que
+    você vai precisar usar para importar coisas do seu interior (por exemplo, mysite.urls).<br><br>
 
-<center><a href="install.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
+     <code>mysite/__init__.py</code>: Um arquivo vazio que diz ao Python que este diretório deve ser considerado um pacote Python.<br><br>
+
+
+     <code>mysite/settings.py</code>: Configurações para este projeto Django. Configurações do Django Irá revelar para você tudo sobre o funcionamento do settings.<br><br>
+
+     <code>mysite/urls.py</code>: As declarações de URLs para este projeto Django; um “índice” de seu site movido a Django. <br><br>
+
+
+     <code>mysite/wsgi.py</code>: Um ponto de integração para servidores WEB compatíveis com WSGI usado para servir seu projeto. <br><br>
+
+</h4></p>
+
+<br><center><a href="install.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="intro.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
 
              </div>
 

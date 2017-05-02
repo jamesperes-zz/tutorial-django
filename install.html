@@ -43,7 +43,7 @@
                     <a href="install.html">Instalação</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="criar.html">Criando Projeto</a>
                 </li>
                 <li>
                     <a href="#">Events</a>
@@ -93,7 +93,7 @@
             <div class="container" style="margin-top: 1%; ">
                     <p><h3>Iremos dividir a instalação em duas partes, primeiro vamos montar um ambiente virtual e depois a instalação do Djando 1.10 </h3></p><br>
 
-                    <p><h1>Ambiente virtual</h1>
+            <p><h1>Ambiente virtual</h1>
 
                     <p><h4>Então, vamos criar um ambiente virtual(também chamado um virtualenv). Isso isolará sua configuração Python/Django em uma base por projeto,
                     significa que quaisquer mudanças que fizer em um website não afetará quaisquer outras aplicações que estiver desenvolvendo a parte. </h4></p>
@@ -107,10 +107,26 @@
                     <p><h4>Windows: <code>C:\Usuário\Nome\tutorial> C:\Python34\python -m venv myvenv</code> </h4></p><br>
 
                     <p><h4>O comando que acabamos de executar criará um diretório chamado myvenv
-                    (ou seja o nome que você escolheu) que contém o nosso ambiente virtual, agora vamos ativar ela.</h4></p>
+                    (ou seja o nome que você escolheu) que contém o nosso ambiente virtual, agora vamos ativar ela.</h4></p><br>
 
+                    <p><h4>Linux: <code>~/tutorial$ source myvenv/bin/activate</code></h4></p>
+                    <p><h4>Windows: <code>C:\Usuário\Nome\tutorial> myvenv\Scripts\activate</code> </h4></p><br>
 
-<br><center><a href="intro.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="intro.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
+                    <p><h4>Perceba que o prefixo <code>(myvenv) </code> aparece!</h4></p><br>
+
+            <p><h1>Instalando o Django</h1>
+
+                    <p><h4>Agora que você tem a sua virtualenv iniciado, você pode instalar Django usando <code>pip</code> . <br>No console,
+                    execute<code> pip install django==1.10</code></h4></p>
+                         <code>
+                                (myvenv) ~$ pip install django==1.10<br>
+                                Downloading/unpacking django==1.10<br>
+                                Installing collected packages: django<br>
+                                Successfully installed django<br>
+                                Cleaning up...
+                          </code>
+                    <br><p><h4>É isso! Agora você está (finalmente) pronto para criar uma aplicação Django!</h4></p>
+<br><center><a href="intro.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="criar.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
 
              </div>
 
