@@ -82,33 +82,51 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style="margin-top: 3%;">
                 <div class="row">
                     <div class="col-lg-12">
 
-          <div class="container" style="margin-top: 3%; ">
-              <table class="table table-responsive">
-                    <td><img src="images/django.png" ></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><img src="images/ps.png" height="90"></td>
-                    <td><img src="images/python.png" height="100"></td>
-               </table>
-          </div>
-
-
 
 <center>
-        <h1>Tutorial de Django - Python Sudeste 2017</h1>
+        <h1>Criando um aplicativo de votação</h1>
 </center><br>
-            <div class="container" style="margin-top: 3%; ">
-                    <p><h3>Bem vindo ao nosso tutorial!! Gostaria já começar agradeçendo a todos aqui presente e um agradecimento especial ao Django Girls e ao WTTD
-                    sem eles nada estaria acontecendo! </h3></p>
-                    <p><h3> Sinta-se a vontade para perguntar tudo que estiver em duvida, este tutorial é para iniciantes, então nada de ficar com vergonha hein!</h3></p>
-                    <p><h3>Mas chega de falar e vamos começar???  Clique em Start!!</h3></p>
-                    <center><a href="intro.html" class="btn btn-primary btn-lg" >Start</a></center>
-        </div>
+            <div class="container" style="margin-top: 1%; ">
+
+                    <p><h4>Cada aplicação que você escreve no Django consiste de um pacote Python que segue uma certa convenção.
+                    O Django vem com um utilitário que gera automaticamente a estrutura básica de diretório de uma aplicação,
+                    então você pode se concentrar apenas em escrever código em vez de ficar criando diretórios. </h4></p><br>
+
+                    <p><h4><code>(myvenv) ~/tutorial$ python manage.py startapp polls</code></h4></p>
+
+                    <p><h4>Que irá criar o diretório polls com a seguinte estrutura:</h4></p>
+
+                    <p><h4>polls/<br>
+                                     ├─── __init__.py<br>
+                                     ├───admin.py<br>
+                                     ├───apps.py<br>
+                                     ├───migrations/<br>
+                                     &emsp;&emsp;&emsp;└───__init__.py<br>
+                                     ├─── models.py<br>
+                                     ├───tests.py<br>
+                                     └───views.py<br>
+                            </h4></p><br>
+
+                    <p><h2>Sua primeira View você nunca esquece</h2></p>
+                    <p><h4>Hora de criar a primeira view. Abra o arquivo <b>polls/views.py</b> e ponha o seguinte código em Python dentro dele:</h4></p>
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">polls/views.py</div>
+                                <div class="panel-body">Look, I'm in a panel!</div>
+
+                            </div>
+
+
+
+
+<br><center><a href="install.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="intro.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
+
+             </div>
 
 
                     </div>
