@@ -13,6 +13,9 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -117,7 +120,11 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">polls/views.py</div>
-                                <div class="panel-body">Look, I'm in a panel!</div>
+                                <div class="panel-body">
+                                <pre><code class="Python">
+from django.http import HttpResponse<br><br>
+def index(request):<br>
+&emsp;&emsp;&emsp;return HttpResponse("Hello, world. You're at the polls index.")</code></pre></div>
 
                             </div>
 
