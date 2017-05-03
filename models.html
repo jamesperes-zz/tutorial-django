@@ -93,63 +93,74 @@
 
 
 <center>
-        <h1>Criando um aplicativo de votação</h1>
+        <h1>Trabalhando com Models</h1>
 </center><br>
             <div class="container" style="margin-top: 1%; ">
 
-                    <p><h4>Cada aplicação que você escreve no Django consiste de um pacote Python que segue uma certa convenção.
-                    O Django vem com um utilitário que gera automaticamente a estrutura básica de diretório de uma aplicação,
-                    então você pode se concentrar apenas em escrever código em vez de ficar criando diretórios. </h4></p><br>
+                    <p><h4>Um model é a única e definitiva fonte de verdade sobre seus dados. Ele contém os campos essenciais e os
+                    comportamentos para os dados que você estiver armazenando.
+                     O Django segue o princípio DRY(Não repita a si mesmo). O objetivo é definir seu modelo de dados em um único local e
+                      automaticamente derivar coisas a partir dele.</h4></p><br>
 
-                    <p><h4><code>(myvenv) ~/tutorial$ python manage.py startapp polls</code></h4></p>
+<p><h4>
+    Em nossa simples aplicação de enquete, nós iremos criar dois modelos: Question e Choice.
+    Uma Question tem uma pergunta e uma data de publicação. Uma Choice tem dois campos: o texto da escolha e um totalizador de votos.
+    Cada Choice é associada a uma Question.<br><br>
 
-                    <p><h4>Que irá criar o diretório polls com a seguinte estrutura:</h4></p>
-<pre><p><h4>polls/
-    ├─── __init__.py
-    ├───admin.py
-    ├───apps.py
-    ├───migrations/
-             └───__init__.py
-    ├─── models.py
-    ├───tests.py
-    └───views.py
-</h4></p></pre><br>
-                    <p><h2>Sua primeira View você nunca esquece</h2></p>
-                    <p><h4>Hora de criar a primeira view. Abra o arquivo <b>polls/views.py</b> e ponha o seguinte código em Python dentro dele:</h4></p>
+Esses conceitos são representados por simples classes Python. Edite o arquivo <b>polls/models.py</b> de modo que fique assim:
 
-
-
-                                <pre><code class="python">
-from django.http import HttpResponse<br><br>
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")</code></pre><br>
-
-<p><h4>Esta é a view mais simples possível no Django. Para chamar a view, nós temos que mapear a URL - e por isto nós precisamos da URLconf;<br></h4></p>
-
-<p><h4>Para criar uma URLconf no diretório polls, Crie uma aquivo chamado <b>urls.py</b> (<b>polls/urls.py</b>)e inclua o seguinte código:</h4></p>
-
+</h4></p>
 <pre><code>
-from django.conf.urls import url
+from django.db import models
 
-from . import views
 
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
-]
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.question_text
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.choice_text
+
 </code></pre><br>
 
-<p><h4>O próximo passo, é apontar dentro do <b>mysite/urls.py</b>:</h4></p>
-<pre><code>
-from django.conf.urls import include, url
-from django.contrib import admin
+<p><h4>Para incluir a aplicação no nosso projeto, precisamos adicionar a referência à classe de configuração da
+aplicação na definição do <b>INSTALLED_APPS </b>. A classe <b>PollsConfig</b> está no arquivo  :file:<b>'polls/apps.py'</b>,
+então seu caminha pontuado é <b>'polls.apps.PollsConfig'</b>. Edite o arquivo <b>mysite/settings.py </b>e adicione aquele
+caminho com notação de ponto a definição do <b>INSTALLED_APPS</b>. Ficará parecido como aqui:</h4></p>
 
-urlpatterns = [
-    url(r'^polls/', include('polls.urls')),
-    url(r'^admin/', admin.site.urls),
+<pre><code>
+INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 ]
+</code></pre><br>
+<p><h4>Agora o Django sabe que deve incluir a aplicação polls. Vamos rodar outro comando:</h4></p>
+<p><h4><code>(myvenv) ~/tutorial$ python manage.py makemigrations polls</code></h4></p><br>
+
+<p><h4>Você deverá ver algo similar ao seguinte:</h4></p>
+<pre><code>
+Migrations for 'polls':
+  polls/migrations/0001_initial.py:
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
 </code></pre>
 
-<br><center><a href="criar.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="models.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
+<br><br><center><a href="install.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="intro.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
 
              </div>
 
