@@ -93,63 +93,35 @@
 
 
 <center>
-        <h1>Criando um aplicativo de votação</h1>
+        <h1>Django Admin</h1>
 </center><br>
             <div class="container" style="margin-top: 1%; ">
+<p><h4>
+Gerar o site de administração para seu time ou clientes para adicionar, alterar, e deletar conteúdo é uma tarefa tediosa que não
+requer muita criatividade. Por essa razão, o Django automatiza totalmente a criação da interface de admin para os modelos.<br><br>
 
-                    <p><h4>Cada aplicação que você escreve no Django consiste de um pacote Python que segue uma certa convenção.
-                    O Django vem com um utilitário que gera automaticamente a estrutura básica de diretório de uma aplicação,
-                    então você pode se concentrar apenas em escrever código em vez de ficar criando diretórios. </h4></p><br>
+O Django foi desenvolvido em um ambiente de redação, onde havia uma clara separação entre “produtores de conteúdo”
+e o site “público”. Gerentes de site usam o sistema para adicionar notícias, eventos, resultado de esportes, etc,
+e o conteúdo é exibido no site público. O Django soluciona o problema de criar uma interface unificada para os administradores
+ editarem o conteúdo.<br><br>
 
-                    <p><h4><code>(myvenv) ~/tutorial$ python manage.py startapp polls</code></h4></p>
+A administração não foi desenvolvida necessariamente para ser usada pelos visitantes do site, mas sim pelos gerentes.
+</h4></p>
 
-                    <p><h4>Que irá criar o diretório polls com a seguinte estrutura:</h4></p>
-<pre><p><h4>polls/
-    ├─── __init__.py
-    ├───admin.py
-    ├───apps.py
-    ├───migrations/
-             └───__init__.py
-    ├─── models.py
-    ├───tests.py
-    └───views.py
-</h4></p></pre><br>
-                    <p><h2>Sua primeira View você nunca esquece</h2></p>
-                    <p><h4>Hora de criar a primeira view. Abra o arquivo <b>polls/views.py</b> e ponha o seguinte código em Python dentro dele:</h4></p>
-
-
-
-                                <pre><code class="python">
-from django.http import HttpResponse<br><br>
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")</code></pre><br>
-
-<p><h4>Esta é a view mais simples possível no Django. Para chamar a view, nós temos que mapear a URL - e por isto nós precisamos da URLconf;<br></h4></p>
-
-<p><h4>Para criar uma URLconf no diretório polls, Crie uma aquivo chamado <b>urls.py</b> (<b>polls/urls.py</b>)e inclua o seguinte código:</h4></p>
-
+<p><h2>Criando um usuário administrador</h2></p>
+<p><h4>Primeiro temos que criar um usuário que possa acessar o site de administração. Rode o seguinte comando:</h4></p>
+<p><h4><code>(myvenv) ~/tutorial$ python manage.py createsuperuser</code></h4></p><br>
+<p><h4>Será requisitado um nome de usuário, e-mail e senha </h4></p>
 <pre><code>
-from django.conf.urls import url
-
-from . import views
-
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
-]
-</code></pre><br>
-
-<p><h4>O próximo passo, é apontar dentro do <b>mysite/urls.py</b>:</h4></p>
-<pre><code>
-from django.conf.urls import include, url
-from django.contrib import admin
-
-urlpatterns = [
-    url(r'^polls/', include('polls.urls')),
-    url(r'^admin/', admin.site.urls),
-]
+Username: admin
+Email address: admin@example.com
+Password: **********
+Password (again): *********
+Superuser created successfully.
 </code></pre>
 
-<br><center><a href="criar.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="models.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
+
+<br><br><center><a href="models.html" class="btn btn-primary btn-lg" ><< Anterior</a> <a href="admin.html" class="btn btn-primary btn-lg" >Proximo >></a></center>
 
              </div>
 
